@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$pendee Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <style>
+    body {
+      background: linear-gradient(-45deg, #f4f7fa, #e7f8f3, #f5f9ff, #f3f6f8);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating decorative circles */
+    .float-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 195, 137, 0.1);
+      animation: float 12s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+    .circle1 { width: 160px; height: 160px; top: 10%; left: 5%; }
+    .circle2 { width: 100px; height: 100px; bottom: 15%; right: 10%; animation-delay: 3s; }
+    .circle3 { width: 80px; height: 80px; top: 60%; left: 70%; animation-delay: 5s; }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+      background: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-btn {
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    .btn-facebook { background-color: #1877f2; color: #fff; }
+    .btn-google { background-color: #fff; border: 1px solid #ddd; color: #444; }
+    .btn-apple { background-color: #000; color: #fff; }
+    .btn-google:hover { background-color: #c9e1ef; }
+    .btn-facebook:hover { background-color: #0d65d9; }
+    .btn-apple:hover { background-color: #272626; color: #f7f6f6; }
+
+    .navbar { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+    .top-bar {
+      background-color: #00c389;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .top-bar a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* Floating Chat Icon */
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #02aa6c;
+      color: #fff;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+    .chat-icon:hover { background-color: #0c0c0c; }
+  </style>
+</head>
+<body>
+
+<!-- Background floating shapes -->
+<div class="float-circle circle1"></div>
+<div class="float-circle circle2"></div>
+<div class="float-circle circle3"></div>
+
+<!-- Green Info Bar -->
+<div class="top-bar">
+  Unlock BudgetApp Premium with an NFT <a href="#">Click to read about our recent project.</a>
+</div>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-light bg-white px-4">
+  <a class="navbar-brand d-flex align-items-center" href="#">
+    <img src="./img/logos.png" alt="logo" width="32" height="32" class="me-2" />
+    <strong>$pendee</strong>
+  </a>
+  <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://flagcdn.com/16x12/gb.png" alt="English" class="me-2" /> English
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/16x12/gb.png" class="me-2" /> English</a></li>
+      <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/16x12/fr.png" class="me-2" /> French</a></li>
+      <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/16x12/in.png" class="me-2" /> Malayalam</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Centered Registration Card -->
+<div class="main-container">
+  <div class="card p-4">
+    <h3 class="text-center mb-2">Sign up to $pendee</h3>
+    <p class="text-center">Have an account? <a href="login.html">Login here</a></p>
+
+    <div class="mb-3">
+      <input type="text" class="form-control" id="regUsername" placeholder="Enter username" required />
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" id="regPassword" placeholder="Enter password" required />
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" id="regConfirm" placeholder="Confirm password" required />
+    </div>
+
+    <button class="btn btn-success w-100 mb-3" onclick="register()">Sign Up to $pendee</button>
+    <div id="regMsg" class="text-center"></div>
+
+    <div class="text-center text-muted my-2">...or sign up via</div>
+
+    <button class="btn btn-facebook w-100 mb-2 social-btn">
+      <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
+    </button>
+    <button class="btn btn-google w-100 mb-2 social-btn">
+      <i class="fab fa-google me-2"></i> Sign up with Google
+    </button>
+    <button class="btn btn-apple w-100 social-btn">
+      <i class="fab fa-apple me-2"></i> Sign up with Apple
+    </button>
+  </div>
+</div>
+
+<!-- Floating Chat Icon -->
+<div class="chat-icon" onclick="openChat()">
+  <i class="fas fa-comment-alt"></i>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function register() {
+    let username = document.getElementById("regUsername").value;
+    let password = document.getElementById("regPassword").value;
+    let confirm = document.getElementById("regConfirm").value;
+    let msg = document.getElementById("regMsg");
+
+    if (username && password && confirm) {
+      if (password === confirm) {
+        let userData = { username, password };
+        localStorage.setItem("users", JSON.stringify(userData));
+
+        msg.innerText = "Registration successful...";
+        msg.className = "text-success";
+        setTimeout(() => window.location.href = "login.html", 1000);
+      } else {
+        msg.innerText = "Passwords do not match!";
+        msg.className = "text-danger";
+      }
+    } else {
+      msg.innerText = "Please fill all fields...";
+      msg.className = "text-danger";
+    }
+  }
+
+  function openChat() {
+    alert("Chat support is coming soon...");
+  }
+</script>
+</body>
+</html>
